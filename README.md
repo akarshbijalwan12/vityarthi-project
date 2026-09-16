@@ -77,3 +77,22 @@ Type `yes` to get another random riddle, or anything else to stop. When you
 stop, your final score is printed and the program exits.
 
 ### Example Session
+
+## Notes
+
+- Answers are checked case-insensitively (e.g. `an echo`, `An Echo`, and
+  `AN ECHO` are all accepted), but must match the expected answer text
+  exactly otherwise (e.g. just `echo` without `An` will **not** be accepted).
+- Riddles are chosen at random each round, so you may see the same riddle
+  more than once in a session.
+- The game runs indefinitely until you choose not to continue, so always
+  answer the "Continue playing?" prompt with something other than `yes` when
+  you want to stop.
+
+## Troubleshooting
+
+| Problem | Likely Cause | Fix |
+|---|---|---|
+| `javac: command not found` | JDK not installed or not on `PATH` | Install a JDK and ensure its `bin` folder is in your `PATH` |
+| `Error: Could not find or load main class RiddleGame` | Running `java` from the wrong directory, or wrong classpath | Make sure you run `java -cp bin RiddleGame` from the repository root, after compiling with `javac -d bin src/RiddleGame.java` |
+| Program exits immediately / skips input prompts | Extra blank lines or trailing spaces piped into input | Make sure you press Enter after typing each answer, with no leading/trailing spaces |
